@@ -14,3 +14,5 @@
 Переходим в папку Загрузки: cd Downloads и устанавливаем компоненты mysql: sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb
 В процессе установки жмем Ок, чтобы выполнить полную установку.
 ![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_4.png).
+Проверяем результат установки: systemctl status mysql
+![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_5.png).
