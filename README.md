@@ -7,4 +7,4 @@
 ослы), а затем объединить их. Просмотреть содержимое созданного файла. Переименовать файл, дав ему новое имя (Друзья человека).
 ![изображение 1](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_1.png)
 2. Создать директорию, переместить файл туда.
-![изображение 2](). 
+![изображение 2](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_2.png). 
