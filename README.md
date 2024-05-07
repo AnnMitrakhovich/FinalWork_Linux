@@ -16,3 +16,5 @@
 ![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_4.png).
 Проверяем результат установки: systemctl status mysql
 ![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_5.png).
+4. Установить и удалить deb-пакет с помощью dpkg.
+![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_6.png).
