@@ -18,3 +18,7 @@
 ![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_5.png).
 4. Установить и удалить deb-пакет с помощью dpkg.
 ![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_6.png).
+5. Выложить историю команд в терминале ubuntu
+Для получения истории введенных команд в терминале ubuntu используем: history
+![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_7.png).
+![image](https://github.com/AnnMitrakhovich/FinalWork_Linux/blob/main/Linux_8.png).
