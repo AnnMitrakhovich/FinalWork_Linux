@@ -27,127 +27,131 @@
 7. В подключенном MySQL репозитории создать базу данных “Друзья
 человека”. Для создания новой базы данных используется команда: ```CREATE DATABASE `human_friends` ```
 8. Создать таблицы с иерархией из диаграммы в БД
-   ```
-   CREATE TABLE Animals (
+   
+```
+CREATE TABLE Animals (
 id_animal INT PRIMARY KEY AUTO_INCREMENT,
 kind_of_animal VARCHAR(50),
 name_of_animal VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS cat (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS dog (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS hamster (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS horse (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS camel (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS donkey (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    id_kind_of_animal INT,
-	animal_name CHAR(30),
-    commands TEXT,
-    date_of_birth DATE,
-    FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
-    ON DELETE SET NULL
-	ON UPDATE CASCADE
+id INT PRIMARY KEY AUTO_INCREMENT,
+id_kind_of_animal INT,
+animal_name CHAR(30),
+commands TEXT,
+date_of_birth DATE,
+FOREIGN KEY (id_kind_of_animal) REFERENCES Animals(id_animal)
+ON DELETE SET NULL
+ON UPDATE CASCADE
 );
    ```
-10. 9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
+
+9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
+    
 ```
 INSERT INTO Animals(kind_of_animal, name_of_animal) VALUES 
 ('pet', 'cat'), ('pet', 'dog'), ('pet', 'hamster'), 
 ('pack animal', 'horse'), ('pack animal', 'camel'), ('pack animal', 'donkey');
 
 INSERT INTO cat (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(1, 'barsik', 'место, спать', '2021-01-01'),
-	(1, 'vasiliy', 'место, кушать', '2023-12-10'),
-    (1, 'mursik', 'место, кушать', '2024-02-02'),
-    (1, 'dir', 'место, кушать, спать', '2023-03-03'),
-    (1, 'krosh', 'место', '2024-05-05');
+(1, 'barsik', 'место, спать', '2021-01-01'),
+(1, 'vasiliy', 'место, кушать', '2023-12-10'),
+(1, 'mursik', 'место, кушать', '2024-02-02'),
+(1, 'dir', 'место, кушать, спать', '2023-03-03'),
+(1, 'krosh', 'место', '2024-05-05');
    
 INSERT INTO dog (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(2, 'wolf', 'место, лежать, стоять, голос', '2022-01-01'),
-	(2, 'ralf', 'место, лежать, стоять, голос, рядом', '2019-12-10'),
-    (2, 'bucks', 'место, лежать, стоять, голос, ждать', '2024-02-02'),
-    (2, 'arnold', 'место, лежать, стоять, голос', '2022-03-03'),
-    (2, 'bim', 'место, лежать, стоять, голос, ждать', '2021-05-05');
+(2, 'wolf', 'место, лежать, стоять, голос', '2022-01-01'),
+(2, 'ralf', 'место, лежать, стоять, голос, рядом', '2019-12-10'),
+(2, 'bucks', 'место, лежать, стоять, голос, ждать', '2024-02-02'),
+(2, 'arnold', 'место, лежать, стоять, голос', '2022-03-03'),
+(2, 'bim', 'место, лежать, стоять, голос, ждать', '2021-05-05');
     
 INSERT INTO hamster (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(3, 'crack', 'спать', '2024-01-01'),
-	(3, 'chip', 'спать', '2023-12-10'),
-    (3, 'deil', 'спать', '2024-02-02'),
-    (3, 'hrum', '', '2024-03-03'),
-    (3, 'black', '', '2024-05-05');
+(3, 'crack', 'спать', '2024-01-01'),
+(3, 'chip', 'спать', '2023-12-10'),
+(3, 'deil', 'спать', '2024-02-02'),
+(3, 'hrum', '', '2024-03-03'),
+(3, 'black', '', '2024-05-05');
     
 INSERT INTO horse (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(4, 'igogo', 'галоп', '2021-01-01'),
-	(4, 'ada', 'прыжок, галоп', '2019-12-10'),
-    (4, 'yohoo', 'прыжок', '2020-02-02'),
-    (4, 'black', 'место', '2022-03-03'),
-    (4, 'white', 'галоп', '2018-05-05');
+(4, 'igogo', 'галоп', '2021-01-01'),
+(4, 'ada', 'прыжок, галоп', '2019-12-10'),
+(4, 'yohoo', 'прыжок', '2020-02-02'),
+(4, 'black', 'место', '2022-03-03'),
+(4, 'white', 'галоп', '2018-05-05');
     
 INSERT INTO camel (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(5, 'sam', 'вперед, вниз', '2023-01-05'),
-	(5, 'mel', 'вперед, вниз', '2019-12-14'),
-    (5, 'jack', '', '2024-05-02'),
-    (5, 'yoda', 'вперед, вниз', '2022-05-03'),
-    (5, 'vasya', 'вперед, вниз', '2018-05-05');
+(5, 'sam', 'вперед, вниз', '2023-01-05'),
+(5, 'mel', 'вперед, вниз', '2019-12-14'),
+(5, 'jack', '', '2024-05-02'),
+(5, 'yoda', 'вперед, вниз', '2022-05-03'),
+(5, 'vasya', 'вперед, вниз', '2018-05-05');
     
 INSERT INTO donkey (id_kind_of_animal, animal_name,commands, date_of_birth) VALUES 
-	(6, 'ia', 'вперед, стой', '2023-01-05'),
-	(6, 'ira', 'вперед, стой', '2019-12-14'),
-    (6, 'yo', '', '2024-05-02'),
-    (6, 'red', 'вперед, стой', '2022-05-03'),
-    (6, 'kuzya', 'вперед, стой', '2018-05-05');
+(6, 'ia', 'вперед, стой', '2023-01-05'),
+(6, 'ira', 'вперед, стой', '2019-12-14'),
+(6, 'yo', '', '2024-05-02'),
+(6, 'red', 'вперед, стой', '2022-05-03'),
+(6, 'kuzya', 'вперед, стой', '2018-05-05');
 ```
+
 11. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
 
