@@ -1,3 +1,5 @@
+package Data;
+
 public class Animal {
     private String name;
     private String command;
