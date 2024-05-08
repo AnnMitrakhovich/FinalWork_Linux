@@ -210,3 +210,14 @@ WHERE date_of_birth BETWEEN '2021-05-01' AND '2023-05-01';
 ```
 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
 прошлую принадлежность к старым таблицам.
+
+```
+CREATE TABLE all_animals AS
+SELECT * FROM cat
+UNION ALL
+SELECT * FROM dog
+UNION ALL
+SELECT * FROM hamster
+UNION ALL
+SELECT * FROM horse_donkey;
+```
