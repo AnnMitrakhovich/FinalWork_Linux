@@ -167,6 +167,46 @@ DROP TABLE donkey;
 
 RENAME TABLE horse TO horse_donkey;
 ```
-11.Создать новую таблицу “молодые животные” в которую попадут все
-животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
-до месяца подсчитать возраст животных в новой таблице
+11.Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, 
+но младше 3 лет и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
+
+```
+CREATE TABLE young_animals (
+id_of_young_animal INT PRIMARY KEY AUTO_INCREMENT,
+animal_type VARCHAR(30),
+animal_name VARCHAR(30),
+date_of_birth DATE,
+age_month INT
+);
+
+DROP FUNCTION IF EXISTS age_animal;
+DELIMITER $$
+CREATE FUNCTION age_animal (date_of_birth DATE)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE result INT DEFAULT 0;
+	SET result = TIMESTAMPDIFF(MONTH, date_of_birth, CURDATE());
+	RETURN result;
+END $$
+DELIMITER ;
+
+INSERT INTO young_animals (animal_type, animal_name, date_of_birth, age_month)
+SELECT *, age_animal(date_of_birth) 
+FROM (
+	SELECT 'cat' AS animal_type, animal_name, date_of_birth FROM cat
+    UNION
+    SELECT 'dog' AS animal_type, animal_name, date_of_birth FROM dog
+    UNION 
+    SELECT 'hamster' AS animal_type, animal_name, date_of_birth FROM hamster
+    UNION
+    SELECT 'horse' AS animal_type, animal_name, date_of_birth FROM horse_donkey
+    WHERE id_kind_of_animal = 4
+    UNION
+    SELECT 'donkey' AS animal_type, animal_name, date_of_birth FROM horse_donkey
+    WHERE id_kind_of_animal = 6
+) AS animal_type
+WHERE date_of_birth BETWEEN '2021-05-01' AND '2023-05-01';
+```
+12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+прошлую принадлежность к старым таблицам.
