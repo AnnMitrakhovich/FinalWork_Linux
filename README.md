@@ -152,6 +152,21 @@ INSERT INTO donkey (id_kind_of_animal, animal_name,commands, date_of_birth) VALU
 (6, 'kuzya', 'вперед, стой', '2018-05-05');
 ```
 
-11. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
 
+```
+DELETE FROM `human_friends`.`animals` WHERE (`id_animal` = '5');
+DROP TABLE IF EXISTS camel;
+
+INSERT INTO horse (id_kind_of_animal, animal_name, commands, date_of_birth)
+SELECT id_kind_of_animal, animal_name, commands, date_of_birth
+FROM donkey;
+
+DROP TABLE donkey;
+
+RENAME TABLE horse TO horse_donkey;
+```
+11.Создать новую таблицу “молодые животные” в которую попадут все
+животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+до месяца подсчитать возраст животных в новой таблице
