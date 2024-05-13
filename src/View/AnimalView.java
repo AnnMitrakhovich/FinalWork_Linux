@@ -24,7 +24,7 @@ public class AnimalView {
 //            int id;
             while (flag) {
                 System.out.println("Список команд:\n" +
-                        "1 - Завести новое животное \n" +
+                        "1 - завести новое животное \n" +
                         "2 - вывести список всех животных \n" +
                         "3 - вывести данные животного по ID \n" +
                         "4 - обучить животное новым командам\n" +
@@ -77,13 +77,13 @@ public class AnimalView {
                                     counter.add();
                                     break;
                                 default:
-                                    System.out.println("такого у нас не предусмотрено");
+                                    System.out.println("попробуйте еще раз");
                                     break;
                             }
                             break;
                         case "2": // вывести список всех животных
                             List<Animal> animals = animalController.getAll();
-                            if (animals == null) {
+                            if (animals.toArray().length == 0) {
                                 System.out.println("Empty");
                             } else {
                                 for (int i = 0; i < animals.toArray().length; i++) {
@@ -94,7 +94,11 @@ public class AnimalView {
                         case "3": //вывести данные животного по ID
                             System.out.println("Введите id:");
                             int id = Integer.parseInt(in.next());
-                            System.out.println(animalController.getAnimal(id).toString());
+                            if (animalController.getAnimal(id).toString() != null) {
+                            System.out.println(animalController.getAnimal(id).toString());}
+                            else {
+                                System.out.println("список пуст");
+                            }
                             break;
                         case "4": //обучить животное новым командам
                             System.out.println("Введите ID животного: ");
@@ -102,7 +106,8 @@ public class AnimalView {
                             System.out.println("Введите команду: ");
                             String commandForAnimal = in.next();
                             animalController.addCommand(ID, commandForAnimal);
-                            System.out.println("Добавлено");
+                            System.out.println("Добавлено " + commandForAnimal + " для " +
+                                    animalController.searchForID(ID).toString());
                             break;
                         case "5":  //увидеть список команд, которое выполняет животное(ID)
                             System.out.println("Введите ID животного: ");
@@ -113,7 +118,7 @@ public class AnimalView {
                             System.out.println("Введите ID животного: ");
                             id = Integer.parseInt(in.next());
                             animalController.deleteAnimal(id);
-                            System.out.println("Удалено");
+                            System.out.println("Удалено " + animalController.searchForID(id).toString());
                             break;
                         case "7":
                             System.out.println(counter.getCount());
