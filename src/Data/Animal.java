@@ -1,22 +1,43 @@
 package Data;
 
-public class Animal {
-    private String name;
-    private String command;
+import java.util.ArrayList;
 
-    public Animal(String name) {
+public abstract class Animal {
+    protected static int id;
+    public String name;
+    public String birthday;
+    public ArrayList<String> commands = new ArrayList<>();
+
+
+    public Animal(int id, String name, String birthday) {
+        this.id = id;
         this.name = name;
+        this.birthday = birthday;
+    }
+
+    public static int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getCommand() {
-        return command;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
+    public String getAnimalCommands() {
+        return commands.toString();
     }
+
+    public void addCommand(String command) {
+        commands.add(command);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ID: " + getId(), "name: " + getName(), "birthday:" + getBirthday());
+    }
+
 }

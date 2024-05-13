@@ -1,8 +1,8 @@
 package Data;
 
 public class Donkey extends PackAnimal{
-    public Donkey(String name) {
-        super(name);
+    public Donkey(String name, String birthday) {
+        super(id, name, birthday);
     }
 
     @Override
