@@ -1,7 +1,11 @@
 package Registry;
 
 public class Counter implements AutoCloseable{
-    static int count = 0;
+    private int count;
+
+    public Counter() {
+        this.count = 0;
+    }
 
     public void add() {
         count++;
@@ -10,6 +14,7 @@ public class Counter implements AutoCloseable{
     public int getCount() {
         return count;
     }
+
 
     @Override
     public void close() throws Exception {

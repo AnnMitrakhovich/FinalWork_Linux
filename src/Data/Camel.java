@@ -1,7 +1,7 @@
 package Data;
 
 public class Camel extends PackAnimal{
-    public Camel(String name, String birthday) {
+    public Camel(int id, String name, String birthday) {
         super(id, name, birthday);
     }
 

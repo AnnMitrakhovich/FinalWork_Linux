@@ -1,7 +1,7 @@
 package Data;
 
 public class Dog extends Pet{
-    public Dog(String name, String birthday) {
+    public Dog(int id, String name, String birthday) {
         super(id, name, birthday);
     }
 

@@ -17,11 +17,10 @@ public class AnimalView {
     }
 
     public static void run() throws Exception {
-        try (Scanner in = new Scanner(System.in, "ibm866");
-             Counter counter = new Counter()) {       // счетчик
-
+        try (Counter counter = new Counter()) {
+            // счетчик
+            Scanner in = new Scanner(System.in, "ibm866");
             boolean flag = true;
-//            int id;
             while (flag) {
                 System.out.println("Список команд:\n" +
                         "1 - завести новое животное \n" +
@@ -87,17 +86,18 @@ public class AnimalView {
                                 System.out.println("Empty");
                             } else {
                                 for (int i = 0; i < animals.toArray().length; i++) {
-                                    System.out.println(animals.get(i).toString());
+                                    System.out.println(animals.get(i).getName());
                                 }
                             }
                             break;
                         case "3": //вывести данные животного по ID
                             System.out.println("Введите id:");
                             int id = Integer.parseInt(in.next());
-                            if (animalController.getAnimal(id).toString() != null) {
-                            System.out.println(animalController.getAnimal(id).toString());}
-                            else {
-                                System.out.println("список пуст");
+                            if (animalController.searchForID(id) != null) {
+                                System.out.println(animalController.searchForID(id).getName() + " " +
+                                        animalController.searchForID(id).getBirthday());
+                            } else {
+                                System.out.println("такого нет, попробуйте еще раз");
                             }
                             break;
                         case "4": //обучить животное новым командам
@@ -112,7 +112,11 @@ public class AnimalView {
                         case "5":  //увидеть список команд, которое выполняет животное(ID)
                             System.out.println("Введите ID животного: ");
                             int Id = Integer.parseInt(in.next());
-                            System.out.println(animalController.getCommands(Id));
+                            if (animalController.getAnimal(Id) != null) {
+                                System.out.println(animalController.getCommands(Id));
+                            } else {
+                                System.out.println("такого нет, попробуйте еще раз");
+                            }
                             break;
                         case "6": //удалить животное
                             System.out.println("Введите ID животного: ");
@@ -136,6 +140,7 @@ public class AnimalView {
                 }
             }
         }
+
     }
 
     public static String inputBirthday() throws Exception {
